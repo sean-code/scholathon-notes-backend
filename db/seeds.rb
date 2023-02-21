@@ -9,13 +9,11 @@
 
 10.times do
     puts "Seeding Users.."
-    user1 = User.create(username: Faker::Twitter.screen_name, bio: Faker::Lorem.paragraph(sentence_count: 3), password: Faker::Config.random.seed )
-    user2 = User.create(username: Faker::Twitter.screen_name, bio: Faker::Lorem.paragraph(sentence_count: 3), password: Faker::Config.random.seed )
+        User.create(username: Faker::Twitter.screen_name, bio: Faker::Lorem.paragraph(sentence_count: 3), password: Faker::Config.random.seed )
     puts "Seeded Users!!"
 end
 10.times do
     puts "Seeding Notes..."
-    note1 = Note.create(title: Faker::Book.title, content: Faker::Books::Lovecraft.sentence(word_count: 3), user: user1)
-    note2 = Note.create(title: Faker::Book.title, content: Faker::Books::Lovecraft.sentence(word_count: 2) user: user2)
+    Note.create(title: Faker::Book.title, content: Faker::Books::Lovecraft.sentence(word_count: 3))
     puts "Seeded Notes!!"
 end
