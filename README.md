@@ -1,19 +1,35 @@
 # README
-## Developed for Uptick Evaluation Purposes Only
 
-## All Notes In The DB
+## Developed for Uptick Evaluation Purposes Only
+* Developed by - [John Nganga](https://github.com/sean-code)
+
+&nbsp;<br>
+## API Set-up Instructions
+- Clone this repository to your local environment (machine):
+    * - ` git clone git@github.com:sean-code/scholathon-notes-backend -- for the SSH link
+    * - Or `git clone https://github.com/sean-code/Superheroes-Back-end.git` -- for the HTTPS link
+- Then run:
+    * `bundle install`
+    * `rails db:migrate db:seed`
+
+- Then run:
+    * `rails s` \
+    ...to launch the server locally
+
+&nbsp;<br>
+### All Notes In The DB
 ![AllNotes](./assets/All_Notes.png)
 
-## Notes By ID
+### Notes By ID
 ![OneNote](./assets/One_Note.png)
 
 
-## All Users in the DB
+### All Users in the DB
 ![AllUsers](./assets/All_Users.png)
 
 
-
-## CRUD Actions (Supports all the Create, Read, Update, and Delete actions)
+&nbsp;<br>
+### CRUD Actions (Supports all the Create, Read, Update, and Delete actions)
 
 
 - Response:
@@ -71,21 +87,8 @@
 }
 ```
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+&nbsp;<br>
+&nbsp;<br>
 # License
 
 Copyright (c) 2023 John Nganga
