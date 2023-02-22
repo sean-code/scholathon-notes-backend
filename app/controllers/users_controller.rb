@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
     def index
         @users=User.all
-        render json: @users, except:[:created_at, :updated_at], status: :ok
+        render json: @users, except:[:password, :created_at, :updated_at], status: :ok
     end
 
     def show
