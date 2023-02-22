@@ -5,11 +5,12 @@ class UsersController < ApplicationController
     end
 
     def show
-        @user = User.find_by(id: params[:id])
-        if @user
-            render json: @user, except: [:created_at, :updated_at], status: :ok
+        user = User.find(session[:user_id])
+
+        if user
+            render json: user, status: :found
         else
-            render json: {error: "User Not Found"}, status: :not_found
+            render json: { error: "Not authorized" }, status: :unauthorized 
         end
     end
 end
