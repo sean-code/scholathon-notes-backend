@@ -1,6 +1,8 @@
 class NotesController < ApplicationController
+    rescue_from ActiveRecord::RecordNotFound, with:  :respond_record_not_found
+
     def index
-        @notes=Note.all
+        @notes = Note.all
         render json: @notes, except:[:created_at, :updated_at], status: :ok
     end
 
@@ -13,36 +15,41 @@ class NotesController < ApplicationController
         end
     end
 
-    def update 
-        note = find_note
-        if note
-            note.update(note_params)
-            render json: note
+    # CRUD Actions
+
+    def create
+        @note = Note.create(note_params)
+        render json: @note, status: :created
+    end
+
+    def update
+        @note = Note.find_by(id: params[:id])
+        if @note
+            @note.update(note_params)
+            render json: @note
         else
             render json: { error: "Note not found" }, status: :not_found
         end
     end
 
     def destroy
-        note = find_note
-        if note
-            note.destroy
+        @note = Note.find_by(id: params[:id])
+        if @note
+            @note.destroy
             head :no_content
         else
-            render json: { error: "note not found" }, status: :not_found
+            render json: { error: "Note not found" }, status: :not_found
         end
     end
 
+
     private
-    def find_note
-        Note.find_by(id: params[:id])
-    end
 
     def note_params
         params.permit(:title, :content)
     end
 
     def respond_record_not_found
-        render json: { error: "note not found" }, status: 404
+        render json: { error: "note not found" }, status: not_found
     end
 end
