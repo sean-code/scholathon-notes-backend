@@ -16,6 +16,8 @@
     * `rails s` \
     ...to launch the server locally
 
+- By default it will launch on http://localhost:3000/
+
 &nbsp;<br>
 ### All Notes In The DB
 ![AllNotes](./assets/All_Notes.png)
